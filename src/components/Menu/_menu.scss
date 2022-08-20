@@ -5,11 +5,10 @@
   top: 0;
   right: 0;
   width: min(100%, 300px);
-  height: auto;
   min-height: 100vh;
   border-left: 1px solid rgba(rgb(101, 108, 110), 0.5);
-  padding: 60px 0 40px;
-  transition: all 0.3s ease-in-out;
+  padding: 70px 0 40px;
+  transition: transform 0.3s ease-in-out;
   transform: translateX(100%);
 
   &.active {

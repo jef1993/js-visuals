@@ -1,23 +1,38 @@
-import logo from './logo.svg';
-import './App.css';
-
+import React, { useState } from "react";
+import Menu from "./components/Menu/Menu";
+import canvasData from "./canvasData";
 function App() {
+  const [currentCanvas, setCurrentCanvas] = useState(canvasData[0].name);
+  const [showMenu, setShowMenu] = useState(false);
+
+  const menuHandler = () => {
+    setShowMenu((prev) => !prev);
+  };
+
+  const canvasSelectHandler = (name) => {
+    setShowMenu(false);
+    setCurrentCanvas(name);
+  };
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <button
+        onClick={menuHandler}
+        className={`menu__btn${showMenu ? " active" : ""}`}
+      >
+        <div className="menu__line"></div>
+      </button>
+      <Menu onSelect={canvasSelectHandler} isActive={showMenu} />
+      <div className="canvas-ctn">
+        {canvasData.map(
+          (item, i) =>
+            item.name === currentCanvas && (
+              <div className="ctn" key={item.name}>
+                <h1>{item.name}</h1>
+                {item.component}
+              </div>
+            )
+        )}
+      </div>
     </div>
   );
 }

@@ -1,13 +1,129 @@
-body {
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@200;300;400;500;600&display=swap");
+*,
+*::after,
+*::before {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Kanit", sans-serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+body {
+  min-height: 100vh;
+  height: auto;
+  width: 100vw;
+  overflow-x: hidden;
+  font-weight: 200;
 }
+
+h1 {
+  text-align: center;
+  font-size: 36px;
+  padding: 20px 0;
+  font-weight: 600;
+}
+
+button {
+  border: 1.6px solid rgb(199, 199, 199);
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.ctn {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.canvas {
+  margin: 0 auto;
+}
+
+.menu {
+  z-index: 2;
+  position: fixed;
+  background-color: white;
+  top: 0;
+  right: 0;
+  width: min(100%, 300px);
+  height: auto;
+  min-height: 100vh;
+  border-left: 1px solid rgba(101, 108, 110, 0.5);
+  padding: 60px 0 40px;
+  transition: all 0.3s ease-in-out;
+  transform: translateX(100%);
+}
+.menu.active {
+  transform: translate(0);
+}
+.menu__btn {
+  height: 40px;
+  position: fixed;
+  right: 15px;
+  top: 15px;
+  z-index: 3;
+  aspect-ratio: 1/1;
+  border-radius: 5px;
+  background-color: white;
+}
+.menu__btn.active > .menu__line {
+  background-color: transparent;
+}
+.menu__btn.active > .menu__line::before, .menu__btn.active > .menu__line::after {
+  background-color: rgb(101, 108, 110);
+  width: 25px;
+}
+.menu__btn.active > .menu__line::before {
+  transform: translate(-2px, 0) rotate(45deg);
+}
+.menu__btn.active > .menu__line::after {
+  transform: translate(-2px, 0) rotate(-45deg);
+}
+.menu__line {
+  width: 20px;
+  height: 3px;
+  background-color: rgb(101, 108, 110);
+  position: relative;
+  border-radius: 10px;
+  margin: 0 auto;
+  transition: all 0.3s ease-in-out;
+}
+.menu__line::before, .menu__line::after {
+  content: "";
+  width: inherit;
+  height: inherit;
+  background-color: inherit;
+  position: absolute;
+  left: 0;
+  top: 0;
+  border-radius: 10px;
+  transition: all 0.3s ease-in-out;
+  transform-origin: center;
+}
+.menu__line::before {
+  transform: translateY(-7px);
+}
+.menu__line::after {
+  transform: translateY(7px);
+}
+.menu__list {
+  width: 100%;
+  list-style: none;
+}
+.menu__list * {
+  width: 100%;
+}
+.menu__item > button {
+  border: none;
+  font-size: 20px;
+  border-radius: 0;
+  height: 40px;
+  text-align: left;
+  padding-left: 30px;
+}
+.menu__item > button:hover {
+  background-color: rgb(236, 236, 236);
+}
+
+/*# sourceMappingURL=index.css.map */

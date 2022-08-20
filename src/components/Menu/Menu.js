@@ -7,7 +7,7 @@ const Menu = (props) => {
       <ul className="menu__list">
         {canvasNames.map((name, i) => (
           <li key={name} className="menu__item">
-            <button onClick={props.onSelect.bind(null, name)}>{name}</button>
+            <button onClick={props.onSelect.bind(null, i)}>{name}</button>
           </li>
         ))}
       </ul>

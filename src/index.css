@@ -9,11 +9,9 @@
 }
 
 body {
-  min-height: 100vh;
-  height: auto;
-  width: 100vw;
   overflow-x: hidden;
   font-weight: 200;
+  position: relative;
 }
 
 h1 {
@@ -29,12 +27,14 @@ button {
   cursor: pointer;
 }
 
+canvas {
+  max-width: 100vw;
+  padding: 0 20px;
+}
+
 .App {
-  position: relative;
-  min-height: 100vh;
-  height: auto;
   width: 100vw;
-  overflow-x: hidden;
+  min-height: 100vh;
 }
 
 .ctn {
@@ -54,12 +54,15 @@ button {
   background-color: white;
   top: 0;
   right: 0;
-  width: min(100%, 300px);
+  width: min(100%, 270px);
   min-height: 100vh;
   border-left: 1px solid rgba(101, 108, 110, 0.5);
   padding: 70px 0 40px;
   transition: transform 0.3s ease-in-out;
   transform: translateX(100%);
+}
+.menu ::-webkit-scrollbar {
+  width: 0px;
 }
 .menu.active {
   transform: translate(0);
@@ -73,6 +76,7 @@ button {
   aspect-ratio: 1/1;
   border-radius: 5px;
   background-color: white;
+  font-size: 0;
 }
 .menu__btn.active > .menu__line {
   background-color: transparent;
@@ -117,6 +121,8 @@ button {
 .menu__list {
   width: 100%;
   list-style: none;
+  overflow-y: scroll;
+  height: calc(100vh - 100px);
 }
 .menu__list * {
   width: 100%;
@@ -127,7 +133,7 @@ button {
   border-radius: 0;
   height: 40px;
   text-align: left;
-  padding-left: 30px;
+  padding-left: 25px;
 }
 .menu__item > button:hover {
   background-color: rgb(236, 236, 236);

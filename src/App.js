@@ -1,38 +1,37 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Menu from "./components/Menu/Menu";
 import canvasData from "./canvasData";
 function App() {
-  const [currentCanvas, setCurrentCanvas] = useState(canvasData[0].name);
+  const [currentCanvasID, setCurrentCanvasID] = useState(0);
   const [showMenu, setShowMenu] = useState(false);
 
   const menuHandler = () => {
     setShowMenu((prev) => !prev);
   };
 
-  const canvasSelectHandler = (name) => {
+  const canvasSelectHandler = (id) => {
     setShowMenu(false);
-    setCurrentCanvas(name);
+    setCurrentCanvasID(id);
   };
   return (
-    <div className="App">
+    <div className={`App`}>
       <button
         onClick={menuHandler}
         className={`menu__btn${showMenu ? " active" : ""}`}
       >
-        <div className="menu__line"></div>
+        &nbsp;<div className="menu__line"></div>
       </button>
       <Menu onSelect={canvasSelectHandler} isActive={showMenu} />
-      <div className="canvas-ctn">
-        {canvasData.map(
-          (item, i) =>
-            item.name === currentCanvas && (
-              <div className="ctn" key={item.name}>
-                <h1>{item.name}</h1>
-                {item.component}
-              </div>
-            )
-        )}
-      </div>
+
+      {canvasData.map(
+        (item, i) =>
+          i === currentCanvasID && (
+            <div className="ctn" key={item.name}>
+              <h1>{item.name}</h1>
+              {item.component}
+            </div>
+          )
+      )}
     </div>
   );
 }

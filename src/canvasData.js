@@ -23,6 +23,7 @@ const canvasData = [
     )
   ),
   new Canvas("Transform", <TransformCanvas />),
+  new Canvas("Transform34", <></>),
 ];
 
 export default canvasData;

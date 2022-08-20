@@ -4,12 +4,15 @@
   background-color: white;
   top: 0;
   right: 0;
-  width: min(100%, 300px);
+  width: min(100%, 270px);
   min-height: 100vh;
   border-left: 1px solid rgba(rgb(101, 108, 110), 0.5);
   padding: 70px 0 40px;
   transition: transform 0.3s ease-in-out;
   transform: translateX(100%);
+  ::-webkit-scrollbar {
+    width: 0px;
+  }
 
   &.active {
     transform: translate(0);
@@ -24,6 +27,7 @@
     aspect-ratio: 1/1;
     border-radius: 5px;
     background-color: white;
+    font-size: 0;
 
     &.active {
       & > .menu__line {
@@ -78,6 +82,8 @@
   &__list {
     width: 100%;
     list-style: none;
+    overflow-y: scroll;
+    height: calc(100vh - 100px);
 
     & * {
       width: 100%;
@@ -91,7 +97,7 @@
       border-radius: 0;
       height: 40px;
       text-align: left;
-      padding-left: 30px;
+      padding-left: 25px;
 
       &:hover {
         background-color: rgb(236, 236, 236);

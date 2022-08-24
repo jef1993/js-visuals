@@ -91,13 +91,17 @@
   }
 
   &__item {
-    & > button {
+    & > * {
       border: none;
       font-size: 20px;
       border-radius: 0;
       height: 40px;
       text-align: left;
       padding-left: 25px;
+      color: black;
+      font-weight: 400;
+      font-size: 1.6rem;
+      text-decoration: none;
 
       &:hover {
         background-color: rgb(236, 236, 236);

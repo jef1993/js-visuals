@@ -1,5 +1,6 @@
-import BoxesCanvas from "./components/canvas/BoxesCanvas";
-import TransformCanvas from "./components/canvas/TransformCanvas";
+import Boxes from "./components/canvas/Boxes";
+import Transform from "./components/canvas/Transform";
+import Angles from "./components/canvas/Angles";
 
 class Canvas {
   constructor(name, component) {
@@ -12,7 +13,7 @@ const canvasData = [
   new Canvas(
     "Boxes",
     (
-      <BoxesCanvas
+      <Boxes
         padding={20}
         gap={20}
         borderWidth={5}
@@ -22,8 +23,8 @@ const canvasData = [
       />
     )
   ),
-  new Canvas("Transform", <TransformCanvas />),
-  new Canvas("Transform34", <></>),
+  new Canvas("Transform", <Transform />),
+  new Canvas("Angles", <Angles />),
 ];
 
 export default canvasData;

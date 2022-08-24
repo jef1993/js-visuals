@@ -1,6 +1,6 @@
 import { useRef, useEffect } from "react";
 
-const BoxesCanvas = ({
+const Boxes = ({
   padding = 50,
   gap = 20,
   borderWidth = 4,
@@ -73,4 +73,4 @@ const BoxesCanvas = ({
     <canvas className="canvas" width={width} height={height} ref={ref}></canvas>
   );
 };
-export default BoxesCanvas;
+export default Boxes;

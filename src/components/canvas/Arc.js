@@ -2,13 +2,9 @@ import Canvas from "./Canvas";
 import { degToRad } from "canvas-sketch-util/math";
 import { range } from "canvas-sketch-util/random";
 
-const Angles = () => {
-  const width = 1080;
-  const height = (width * 9) / 16;
-
-  const deg = (degree) => {
-    return (degree / 180) * Math.PI;
-  };
+const Arc = () => {
+  const width = 800;
+  const height = (width * 3) / 4;
 
   const draw = (context) => {
     context.save();
@@ -21,10 +17,11 @@ const Angles = () => {
     const h = height * 0.15;
     const radius = width * 0.15;
 
-    const count = 12;
+    const count = 20;
 
     for (let i = 0; i < count; i++) {
-      const angle = degToRad(360 / count) * i;
+      const slice = degToRad(360 / count);
+      const angle = slice * i;
       const x = cx + radius * Math.sin(angle);
       const y = cy + radius * Math.cos(angle);
       const scale = 0.2 + (0.8 / count) * i;
@@ -33,23 +30,34 @@ const Angles = () => {
         context.save();
         context.translate(x, y);
         context.rotate(-angle);
-        context.scale(range(5, 10) / 10, scale);
+        context.scale(range(0.3, 1.5), range(0.2, 0.4));
 
         context.beginPath();
         context.fillStyle = "#000";
-        context.fillRect(-w * 0.5, -w * 0.5, w, h);
+        context.fillRect(-w * 0.5, -w * 0.5, w, h * range(0.5, 3));
         context.restore();
-      }, (count - i) * 100);
+      }, (count - i) * 50);
 
-      context.save();
-      context.translate(x, y);
-      context.rotate(-angle);
-      context.beginPath();
+      setTimeout(() => {
+        context.save();
+        context.translate(cx, cy);
+        context.rotate(-angle);
+        context.arc(
+          0,
+          0,
+          radius * range(1.2, 2),
+          slice * range(1, -4),
+          slice * range(1, 6)
+        );
+        context.lineWidth = range(1, 15);
+        context.stroke();
+        context.beginPath();
 
-      context.restore();
+        context.restore();
+      }, i * 50);
     }
   };
   return <Canvas classes="angles" width={width} height={height} draw={draw} />;
 };
 
-export default Angles;
+export default Arc;

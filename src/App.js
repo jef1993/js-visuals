@@ -26,9 +26,10 @@ function App() {
         <Routes>
           {canvasData.map((item, i) => (
             <Route
+              key={item.name}
               path={`/${item.name.toLowerCase()}`}
               element={
-                <div className="ctn" key={item.name}>
+                <div className="ctn">
                   <h1>{item.name}</h1>
                   {item.component}
                 </div>

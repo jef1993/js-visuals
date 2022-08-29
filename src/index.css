@@ -28,8 +28,7 @@ button {
 }
 
 canvas {
-  max-width: 100vw;
-  padding: 0 20px;
+  max-width: calc(100vw - 2rem);
 }
 
 .App {
@@ -124,9 +123,6 @@ canvas {
   overflow-y: scroll;
   height: calc(100vh - 100px);
 }
-.menu__list * {
-  width: 100%;
-}
 .menu__item > * {
   border: none;
   font-size: 20px;
@@ -138,6 +134,7 @@ canvas {
   font-weight: 400;
   font-size: 1.6rem;
   text-decoration: none;
+  display: block;
 }
 .menu__item > *:hover {
   background-color: rgb(236, 236, 236);

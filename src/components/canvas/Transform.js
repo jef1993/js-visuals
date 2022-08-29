@@ -5,6 +5,7 @@ const Transform = () => {
   const height = 1080;
 
   const draw = (context) => {
+    // save current state e.g. transform
     context.save();
     context.fillStyle = "#eee";
     context.fillRect(0, 0, width, height);
@@ -21,6 +22,7 @@ const Transform = () => {
     context.beginPath();
     context.rect(-w / 2, -h / 2, w, h);
     context.fill();
+    // reset to previous state
     context.restore();
 
     context.translate(100, 400);

@@ -16,6 +16,7 @@ class Agent extends Point {
   }
   drawDot(context) {
     context.save();
+
     context.fillStyle = "black";
     context.beginPath();
     context.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
@@ -27,7 +28,7 @@ class Agent extends Point {
 const Dots = () => {
   const width = 800;
   const height = 600;
-  const count = 40;
+  const count = 50;
 
   const draw = (context) => {
     context.save();
@@ -35,14 +36,12 @@ const Dots = () => {
     context.fillRect(0, 0, width, height);
 
     for (let i = 0; i < count; i++) {
-      setTimeout(() => {
-        const size = range(5, 20);
-        new Agent(
-          range(size, width - size),
-          range(size, height - size),
-          size
-        ).drawDot(context);
-      }, i * 25);
+      const size = range(5, 20);
+      new Agent(
+        range(size, width - size),
+        range(size, height - size),
+        size
+      ).drawDot(context);
     }
   };
 

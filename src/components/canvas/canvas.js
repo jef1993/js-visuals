@@ -1,20 +1,34 @@
 import { useRef, useEffect } from "react";
 
-const Canvas = ({ width = 600, height = 600, draw, classes }) => {
-  const ref = useRef(null);
+const Canvas = ({
+  width = 600,
+  height = 600,
+  draw,
+  classes,
+  animated = false,
+}) => {
+  const canvasRef = useRef(null);
 
   useEffect(() => {
-    const canvas = ref.current;
-    const context = canvas.getContext("2d");
-    draw(context);
-  });
+    if (canvasRef.current) {
+      const canvas = canvasRef.current;
+      const context = canvas.getContext("2d");
+      const animate = () => {
+        if (context && animated) {
+          draw(context);
+          requestAnimationFrame(animate);
+        }
+      };
+      requestAnimationFrame(animate);
+    }
+  }, []);
 
   return (
     <canvas
       className={`canvas${classes ? " " + classes : ""}`}
       width={width}
       height={height}
-      ref={ref}
+      ref={canvasRef}
     ></canvas>
   );
 };

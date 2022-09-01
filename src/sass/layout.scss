@@ -8,4 +8,10 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+
+  & > h1 {
+    height: 100px;
+    display: grid;
+    place-content: center;
+  }
 }

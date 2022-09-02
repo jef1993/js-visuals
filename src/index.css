@@ -27,10 +27,6 @@ button {
   cursor: pointer;
 }
 
-canvas {
-  max-width: calc(100vw - 2rem);
-}
-
 .App {
   width: 100vw;
   min-height: 100vh;

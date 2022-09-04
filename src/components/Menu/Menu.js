@@ -13,7 +13,7 @@ const Menu = (props) => {
           <li key={name} className="menu__item">
             <NavLink
               onClick={props.onSelect}
-              to={name.toLowerCase()}
+              to={name.toLowerCase().replace(" ", "-")}
               style={({ isActive }) => (isActive ? activeStyle : {})}
             >
               {name}

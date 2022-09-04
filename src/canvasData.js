@@ -4,6 +4,7 @@ import Angles from "./components/canvas/Angles";
 import Arc from "./components/canvas/Arc";
 import Dots from "./components/canvas/Dots";
 import Animation from "./components/canvas/Animation";
+import AnimatedLines from "./components/canvas/AnimatedLines";
 
 class Canvas {
   constructor(name, component) {
@@ -31,6 +32,7 @@ const canvasData = [
   new Canvas("Arc", <Arc />),
   new Canvas("Dots", <Dots />),
   new Canvas("Animation", <Animation />),
+  new Canvas("Animated Lines", <AnimatedLines />),
 ];
 
 export default canvasData;

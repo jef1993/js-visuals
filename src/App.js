@@ -27,7 +27,7 @@ function App() {
           {canvasData.map((item, i) => (
             <Route
               key={item.name}
-              path={`/${item.name.toLowerCase()}`}
+              path={`/${item.name.toLowerCase().replace(" ", "-")}`}
               element={
                 <div className="ctn">
                   <h1>{item.name}</h1>
@@ -38,7 +38,11 @@ function App() {
           ))}
           <Route
             path="/*"
-            element={<Navigate to={canvasData[0].name.toLowerCase()} />}
+            element={
+              <Navigate
+                to={canvasData[0].name.toLowerCase().replace(" ", "-")}
+              />
+            }
           />
         </Routes>
         {/* 

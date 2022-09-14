@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Menu from "./components/Menu/Menu";
+import Panel from "./components/panel/Panel";
 import canvasData from "./canvasData";
 
 function App() {
@@ -22,6 +23,8 @@ function App() {
         >
           &nbsp;<div className="menu__line"></div>
         </button>
+        <Panel />
+
         <Menu onSelect={canvasSelectHandler} isActive={showMenu} />
         <Routes>
           {canvasData.map((item, i) => (

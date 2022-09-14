@@ -1,0 +1,19 @@
+.panel {
+  &__btn {
+    position: fixed;
+    top: 15px;
+    right: 65px;
+    font-size: 16px;
+    height: 40px;
+    padding: 0 10px;
+    border-radius: 5px;
+
+    &.active {
+      background-color: rgb(169, 176, 185);
+      color: white;
+    }
+  }
+
+  &__panel {
+  }
+}

@@ -1,4 +1,4 @@
-import { useRef, useEffect, useState } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import Whammy from "react-whammy";
 
 const Canvas = ({
@@ -16,7 +16,6 @@ const Canvas = ({
   const [isCompiling, setIsCompiling] = useState(false);
   const [recordedFrames, setRecordedFrames] = useState(null);
   const isDownloading = isCompiling || recordedFrames;
-
   const [r2Downloading, setR2Downloading] = useState(false);
 
   useEffect(() => {
@@ -54,7 +53,7 @@ const Canvas = ({
     }
 
     return () => cancelAnimationFrame(requestRef.current);
-  }, [isPlaying]);
+  }, [isPlaying, draw, animated, fullscreen]);
 
   const recordVideo = (duration = 3000, fps = 30) => {
     if (savedCanvas) {

@@ -39,6 +39,7 @@ const Grid = () => {
   const randomH = random.range(0, random.range(120, 720));
 
   const draw = (context) => {
+    context.clearRect(0, 0, width, height);
     context.save();
     context.fillStyle = "#fff";
     context.fillRect(0, 0, width, height);
@@ -83,26 +84,6 @@ const Grid = () => {
 
   return (
     <>
-      {/* <input
-        value={cols}
-        onChange={(e) => {
-          setCols(e.target.value);
-        }}
-        step={1}
-        min={1}
-        max={50}
-        type="range"
-      ></input>
-      <input
-        value={rows}
-        onChange={(e) => {
-          setRows(e.target.value);
-        }}
-        step={1}
-        min={1}
-        max={50}
-        type="range"
-      ></input> */}
       <Canvas height={height} width={width} draw={draw} animated={true} />
     </>
   );
